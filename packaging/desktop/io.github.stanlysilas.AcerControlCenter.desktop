@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Acer Control Center
+GenericName=Laptop Control Center
+Comment=Fans, GPU mode, keyboard lighting and battery for Acer gaming laptops
+Exec=acer-control-center
+Icon=io.github.stanlysilas.AcerControlCenter
+Terminal=false
+Categories=System;Settings;HardwareSettings;
+Keywords=acer;nitro;predator;fan;gpu;rgb;keyboard;battery;
+StartupNotify=true
+StartupWMClass=io.github.stanlysilas.AcerControlCenter

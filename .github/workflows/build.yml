@@ -1,0 +1,92 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - "**"
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+
+          sudo apt-get install -y \
+            build-essential \
+            gcc \
+            g++ \
+            make \
+            kmod \
+            linux-headers-generic \
+            meson \
+            ninja-build \
+            pkg-config \
+            libgtk-4-dev \
+            libadwaita-1-dev
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Locate kernel headers
+        id: headers
+        run: |
+          HEADER_DIR=$(find /usr/src -maxdepth 1 -type d -name "linux-headers-*" | sort | tail -n1)
+          echo "dir=$HEADER_DIR" >> "$GITHUB_OUTPUT"
+          echo "Using headers: $HEADER_DIR"
+
+      - name: Build kernel driver
+        working-directory: driver
+        run: |
+          make KDIR="${{ steps.headers.outputs.dir }}"
+
+      - name: Verify kernel module
+        run: |
+          find driver -name "*.ko"
+
+      - name: Configure libacercontrol
+        run: |
+          meson setup lib/build-ci lib
+
+      - name: Build libacercontrol
+        run: |
+          meson compile -C lib/build-ci
+
+      - name: Check daemon
+        run: |
+          cargo check --manifest-path daemon/Cargo.toml
+
+      - name: Check GUI
+        run: |
+          cargo check --manifest-path gui/Cargo.toml
+
+      - name: Upload kernel module
+        uses: actions/upload-artifact@v4
+        with:
+          name: acer-keyboard-module
+          path: driver/**/*.ko
+
+      - name: Upload libacercontrol
+        uses: actions/upload-artifact@v4
+        with:
+          name: libacercontrol
+          path: |
+            lib/build/libacercontrol.so*
+            lib/build-ci/libacercontrol.so*
+
+      - name: Success
+        run: |
+          echo "======================================"
+          echo " Build completed successfully"
+          echo "======================================"
+          echo "✓ Driver"
+          echo "✓ libacercontrol"
+          echo "✓ Daemon"
+          echo "✓ GUI"

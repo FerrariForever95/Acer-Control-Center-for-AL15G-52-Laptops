@@ -1,0 +1,11 @@
+[package]
+name = "acer-control-daemon"
+version = "0.1.0"
+edition = "2021"
+build = "build.rs"
+
+[dependencies]
+zbus = { version = "4", features = ["tokio"] }
+tokio = { version = "1", features = ["full"] }
+anyhow = "1"
+libc = "0.2"
