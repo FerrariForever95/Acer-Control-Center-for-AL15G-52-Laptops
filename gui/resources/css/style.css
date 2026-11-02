@@ -1,0 +1,377 @@
+/*
+ * Acer Control Center: gaming theme.
+ *
+ * Near-black surfaces, one hot accent (#ff4a36), cyan for cooling data.
+ * Status colours are used only for status.
+ */
+
+/* ---------- Base ---------- */
+
+window {
+    background: #0a0b0e;
+}
+
+label {
+    color: #eceef2;
+}
+
+.dim-label,
+.card-description,
+.row-subtitle,
+.page-subtitle {
+    color: #8b93a1;
+}
+
+/* ---------- Window chrome ---------- */
+
+.main-window {
+    background: #0a0b0e;
+}
+
+.main-headerbar {
+    background: #0a0b0e;
+    border-bottom: 1px solid rgba(255, 74, 54, 0.25);
+    box-shadow: none;
+    min-height: 38px;
+}
+
+.content-stack {
+    background: transparent;
+}
+
+/* ---------- Sidebar ---------- */
+
+.sidebar {
+    background: #0e1014;
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.sidebar-title {
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: #ff4a36;
+}
+
+.sidebar-subtitle {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #8b93a1;
+}
+
+.sidebar-list {
+    background: transparent;
+    padding: 6px 10px;
+}
+
+.sidebar-row {
+    border-radius: 6px;
+    margin: 3px 0;
+    border-left: 3px solid transparent;
+    transition: background 140ms ease, border-color 140ms ease;
+}
+
+.sidebar-row:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-row:selected {
+    background: linear-gradient(90deg, rgba(255, 74, 54, 0.22), rgba(255, 74, 54, 0.04));
+    border-left-color: #ff4a36;
+}
+
+.sidebar-row:selected image,
+.sidebar-row:selected label {
+    color: #ff7a6a;
+}
+
+.sidebar-item-label {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* ---------- Page headings ---------- */
+
+.page-title {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.page-subtitle {
+    font-size: 14px;
+}
+
+.section-header-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #ff6a58;
+}
+
+.card-title {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.card-description {
+    font-size: 13px;
+}
+
+.row-title {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.row-subtitle {
+    font-size: 13px;
+}
+
+/* ---------- Surfaces ---------- */
+
+.surface,
+.hero-card,
+.metric-card,
+.fan-card,
+.rgb-panel-card,
+.rgb-preview-card,
+.rgb-controls-card {
+    background: linear-gradient(180deg, #151820, #11131a);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+}
+
+.hero-card {
+    border: 1px solid rgba(255, 74, 54, 0.40);
+    background: linear-gradient(135deg, #1d1316 0%, #12141a 60%);
+    box-shadow: 0 0 24px rgba(255, 74, 54, 0.10);
+}
+
+.metric-card {
+    transition: border-color 140ms ease, box-shadow 140ms ease;
+}
+
+.metric-card:hover {
+    border-color: rgba(255, 74, 54, 0.65);
+    box-shadow: 0 0 14px rgba(255, 74, 54, 0.18);
+}
+
+.metric-card-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #8b93a1;
+}
+
+.metric-card-value {
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.metric-card-subtitle {
+    font-size: 13px;
+    color: #8b93a1;
+}
+
+.metric-card.temp-warm {
+    border-color: rgba(251, 146, 60, 0.60);
+}
+
+.metric-card.temp-hot {
+    border-color: rgba(239, 68, 68, 0.80);
+}
+
+.hero-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #ff6a58;
+}
+
+.hero-subtitle {
+    font-size: 14px;
+    color: #8b93a1;
+}
+
+.hero-value {
+    font-size: 30px;
+    font-weight: 800;
+}
+
+/* ---------- Status chips ---------- */
+
+.status-chip {
+    padding: 2px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.status-chip-dot {
+    font-size: 8px;
+}
+
+.status-chip-label {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.status-green {
+    color: #3ddc84;
+    border-color: rgba(61, 220, 132, 0.35);
+    background: rgba(61, 220, 132, 0.09);
+}
+
+.status-blue {
+    color: #38d3f5;
+    border-color: rgba(56, 211, 245, 0.35);
+    background: rgba(56, 211, 245, 0.09);
+}
+
+.status-orange {
+    color: #ff9a3c;
+    border-color: rgba(255, 154, 60, 0.38);
+    background: rgba(255, 154, 60, 0.10);
+}
+
+.status-red {
+    color: #ff5c5c;
+    border-color: rgba(255, 92, 92, 0.38);
+    background: rgba(255, 92, 92, 0.10);
+}
+
+.status-gray {
+    color: #9ca3af;
+    border-color: rgba(156, 163, 175, 0.25);
+    background: rgba(156, 163, 175, 0.07);
+}
+
+.status-chip label {
+    color: inherit;
+}
+
+/* ---------- Mode cards ---------- */
+
+.mode-card {
+    border-radius: 8px;
+    padding: 14px 10px;
+    background-image: none;
+    background: #14161c;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: none;
+    transition: background 140ms ease, border-color 140ms ease,
+                box-shadow 140ms ease;
+}
+
+.mode-card:hover {
+    background: #1a1d25;
+    border-color: rgba(255, 74, 54, 0.45);
+}
+
+.mode-card:disabled {
+    opacity: 0.45;
+}
+
+.mode-card-active {
+    background: linear-gradient(180deg, rgba(255, 74, 54, 0.22), rgba(255, 74, 54, 0.08));
+    border: 1px solid #ff4a36;
+    box-shadow: 0 0 16px rgba(255, 74, 54, 0.35);
+}
+
+.mode-card-active image,
+.mode-card-active label {
+    color: #ff8576;
+}
+
+.mode-card-subtitle {
+    font-size: 12px;
+    color: #8b93a1;
+}
+
+/* ---------- Buttons, switches, sliders ---------- */
+
+button.suggested-action {
+    background: linear-gradient(180deg, #ff5a45, #e03a28);
+    color: #ffffff;
+    border: none;
+    font-weight: 700;
+    box-shadow: 0 0 12px rgba(255, 74, 54, 0.30);
+}
+
+button.suggested-action:hover {
+    background: linear-gradient(180deg, #ff6f5b, #ee4633);
+}
+
+button.destructive-action {
+    font-weight: 600;
+}
+
+switch:checked {
+    background: #ff4a36;
+}
+
+scale highlight {
+    background: linear-gradient(90deg, #ff4a36, #ff8a3c);
+}
+
+scale slider {
+    background: #ffffff;
+    border: 2px solid #ff4a36;
+}
+
+/* ---------- Cooling ---------- */
+
+.fan-card-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: #8b93a1;
+}
+
+.preset-button {
+    padding: 10px 6px;
+    font-weight: 600;
+}
+
+.cooling-note,
+.curve-hint {
+    font-size: 12px;
+    color: #8b93a1;
+}
+
+/* ---------- Forms and feedback ---------- */
+
+.form-status {
+    font-size: 13px;
+    color: #5fe39a;
+}
+
+.form-status-error {
+    color: #ff6b6b;
+}
+
+.form-status-warning {
+    color: #ffb04a;
+}
+
+list.boxed-list {
+    background: #12141a;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 10px;
+    box-shadow: none;
+}
+
+list.boxed-list > row {
+    background: transparent;
+}
+
+banner revealer widget {
+    background: #3a1510;
+    color: #ffd9d3;
+}
+
+scrollbar slider {
+    background: rgba(255, 255, 255, 0.18);
+}

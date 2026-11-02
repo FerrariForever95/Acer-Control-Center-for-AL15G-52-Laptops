@@ -1,0 +1,15 @@
+[Unit]
+Description=Acer Control Daemon
+After=dbus.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/acer-control-daemon
+Restart=on-failure
+RestartSec=2
+User=root
+Group=root
+StateDirectory=acer-control-center
+
+[Install]
+WantedBy=multi-user.target

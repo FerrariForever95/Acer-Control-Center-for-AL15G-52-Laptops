@@ -1,0 +1,1 @@
+KERNEL=="acer_io", GROUP="acercontrol", MODE="0660"
